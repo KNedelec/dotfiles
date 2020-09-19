@@ -5,7 +5,7 @@
 set nocp hid ru nosol list ai si fixeol et nu
 
 let g:VIM_HOME = $HOME . '/.vim/'
-call plug#begin('~/vim/plugged')
+call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'jonathanfilip/vim-lucius'
 ""
