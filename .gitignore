@@ -1,0 +1,26 @@
+# only dotfiles
+/[^.]*
+
+# sensitive
+/.private
+
+# iJunk
+.DS_Store
+.MacOSX
+.Trash
+
+# ZSH junk
+/.zcompdump*
+/.zsh-update
+
+# Python virtual envs
+/.virtualenvs
+
+# Ruby virtual envs
+/.rvm
+
+# History files
+/.*history
+
+tags
+node_modules
