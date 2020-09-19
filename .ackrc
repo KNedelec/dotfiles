@@ -1,0 +1,10 @@
+--ignore-file=is:tags
+
+--ignore-file=is:yarn.lock
+--ignore-file=is:yarn-error.log
+
+--ignore-file=is:package-lock.json
+--ignore-file=is:npm-shrinkwrap.json
+--ignore-file=is:npm-debug.log
+
+--follow
