@@ -117,7 +117,6 @@ test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 # dotfiles
 alias dot='/usr/bin/git --git-dir=/Users/knedelec/.dotfiles/ --work-tree=/Users/knedelec'
 
-
 #Make ctrl-z toggle fg/bg
 function fg-bg() {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -128,3 +127,8 @@ function fg-bg() {
 }
 zle -N fg-bg
 bindkey '' fg-bg
+
+#ESC v to edit command line in vim
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
