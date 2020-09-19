@@ -1,0 +1,50 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "react-app",
+    "plugin:import/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["prettier"],
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["styled-components/macro", "styled-components"]],
+        "extensions": [".ts", ".js", ".jsx", ".json"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": [
+      "error",
+      { "varsIgnorePattern": "[iI]gnored", "argsIgnorePattern": "^_$" }
+    ],
+    "object-shorthand": ["error", "always"],
+    "curly": "error",
+    "no-console": "error",
+    "dot-notation": "error",
+    "eqeqeq": "error",
+    "no-else-return": "error",
+    "no-useless-return": "error",
+    "yoda": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-destructuring": ["error", { "object": true }],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "no-nested-ternary": "error",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/destructuring-assignment": "error",
+    "react/jsx-sort-props": ["error", { "ignoreCase": true }]
+  },
+  "env": {
+    "jest": true,
+    "es6": true
+  }
+}
