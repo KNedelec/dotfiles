@@ -1,8 +1,8 @@
 # only dotfiles
-/[^.]*
+~/[^.]*
 
 # sensitive
-/.private
+~/.private
 
 # iJunk
 .DS_Store

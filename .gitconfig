@@ -1,0 +1,37 @@
+[include]
+	path = ~/.private/.pre-gitconfig
+
+[alias]
+	co = checkout
+	cb = checkout -b
+	st = status
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	pro = pull --rebase origin
+	ctags = !.git/hooks/ctags
+	wip = !git add -A && git commit -m \"wip\" --no-verify
+
+[user]
+	name = Kevin Nedelec
+	email = kevin.nedelec@gmail.com
+
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+
+[merge]
+	tool = fugitive
+
+	conflictstyle = diff3
+[core]
+	excludesFile = ~/.gitignore
+
+[init]
+	templatedir = ~/.git_template
+
+[push]
+  default = current
+
+[includeif "gitdir:~/pj/gg/"]
+	path = ~/.private/.gg.gitconfig
+
+[include]
+	path = ~/.private/.post-gitconfig
