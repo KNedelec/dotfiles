@@ -1,3 +1,6 @@
 .netrwhist
 bundle
 plugged
+tmp/swp
+tmp/undo
+tmp/backup

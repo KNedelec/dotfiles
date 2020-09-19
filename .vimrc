@@ -2,7 +2,7 @@
 " VIM CONFIGURATION
 "
 
-set nocp hid ru nosol list ai si fixeol et nu
+set nocp hid ru nosol ai si fixeol et nu
 
 let g:VIM_HOME = $HOME . '/.vim/'
 call plug#begin('~/.vim/plugged')
@@ -41,15 +41,23 @@ Plug 'wellle/targets.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'https://github.com/simnalamburt/vim-mundo'
 
+""" search
+Plug 'mileszs/ack.vim'
+
+""" snips
 Plug 'sirver/ultisnips'
 
 call plug#end()
 
-" opent .vimrc
+" open .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
+" open .vim/
+nmap <silent> <leader>eV :execute "e " . g:VIM_HOME<CR>
 " open ftplugin
 nmap <silent> <leader>ef :execute "e " . g:VIM_HOME . "ftplugin/" . &filetype . ".vim"<CR>
+" source vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 
@@ -62,6 +70,8 @@ set tabstop=2
 set expandtab
 set backspace=indent,eol,start
 set shiftwidth=2
+set shiftround " always indent by multiple of shiftwidth
+set showcmd " more inv
 set t_Co=256
 set showmatch
 set wildmode=list:full
@@ -70,30 +80,76 @@ set bs=2
 set fo+=ctrq
 set ls=2
 set tw=80
-set lcs-=eol:$
-set lcs+=tab:>-
-set lcs+=trail:·
+set list " show spaces
+set listchars-=eol:$
+set listchars+=tab:>-
+set listchars+=trail:·
+set listchars+=nbsp:⦸ " U+29b8
 set shm=at
-set scrolloff=5
+set scrolloff=3
 set sidescrolloff=5
 syntax sync minlines=256 " scroll perf
 set history=1000
-set undolevels=1000
-set undofile
-set undodir="$HOME/.vim/.vim_undo"
 set wildignore=*.swp,*.bak,plugins,*/app/cache/*,*/node_modules,*/dist/*,*/vendor,*/.venv
 set title                " change the terminal's title
 set noerrorbells         " don't beep
-set nobackup
 set nowb
-set directory=/var/tmp/
+
+set undolevels=1000
+set undofile
+
+" double slashes below means 'keeps file path' to distinguish 2 files with the same name but a different path
+let &undodir=g:VIM_HOME . 'tmp/undo//' " undo files dir
+set undodir+=/var/tmp/vim/undo//
+let &directory=g:VIM_HOME . 'tmp/swp//' " swp files dir.
+set directory+=/var/tmp/vim/swp//
+let &backupdir=g:VIM_HOME . 'tmp/backup//' " backup files dir
+set backupdir+=/var/tmp/vim/backup//
+let &viewdir=g:VIM_HOME . 'tmp/views/' " sessions dir
+set viewdir+=/var/tmp/vim/views/
+
+
 set esckeys
 set ttimeout
 set ttimeoutlen=50
 set colorcolumn=81
 set completeopt=menuone,preview
 set cursorline
-set formatoptions-=t
+set nojoinspaces
+
+if has('folding')
+  if has('windows')
+    set fillchars=vert:┃ " continuous line between windows
+  endif
+endif
+
+if has('linebreak')
+  set linebreak       " don't go outside of the window. do not insert EOL
+  set breakindent     " instead display a 'virtual' indented new line
+  let &showbreak='↳'  " and show U+21b3 at the beginning"
+  if exists('&breakindentopt')
+    set breakindentopt=shift:2
+  endif
+endif
+
+if exists('&belloff')
+  set belloff=all
+endif
+
+if has('termguicolors')
+  set termguicolors " use guifg/guibg instead of ctermfg/ctermbg in terminal
+endif
+
+if exists('+colorcolumn')
+  let &l:colorcolumn='+' . join(range(0, 254), ',+')
+endif
+
+set formatoptions-=t " remove auto wrap
+set formatoptions+=n " smart indent inside numbered lists
+if v:version > 703
+  set formatoptions+=j "remove comment leader when joining lines
+endif
+set lazyredraw "don't bother updating screen during macro playback
 
 syntax on
 filetype plugin indent on
@@ -129,7 +185,7 @@ nnoremap j gj
 nnoremap k gk
 
 " folding
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevel=6
 
 " undo tree
