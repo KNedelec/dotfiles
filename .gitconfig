@@ -3,7 +3,9 @@
 
 [alias]
 	co = checkout
-	cb = checkout -b
+	cob = checkout -b
+	ci = commit
+	cia = commit --amend
 	st = status
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	pro = pull --rebase origin
