@@ -5,6 +5,8 @@
 set nocp hid ru nosol ai si fixeol et
 
 let g:VIM_HOME = $HOME . '/.vim/'
+let g:VIMRC = expand('%')
+
 call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'jonathanfilip/vim-lucius'
@@ -100,8 +102,6 @@ set backupdir+=/var/tmp/vim/backup//
 let &viewdir=g:VIM_HOME . 'tmp/views/' " sessions dir
 set viewdir+=/var/tmp/vim/views/
 
-
-set esckeys
 set ttimeout
 set ttimeoutlen=50
 set colorcolumn=81
@@ -166,7 +166,7 @@ set pastetoggle=<F2>
 set foldmethod=indent
 set foldlevel=6
 
-command Smake execute "silent make | redraw!"
+command! Smake execute "silent make | redraw!"
 
 " use the silver searcher
 if executable('ag')
@@ -212,4 +212,4 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 " refresh ultisnips
-:command RU call UltiSnips#RefreshSnippets()
+:command! RU call UltiSnips#RefreshSnippets()
