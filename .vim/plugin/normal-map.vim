@@ -26,6 +26,9 @@ nnoremap <leader>x :x<cr>
 
 nnoremap <tab> <c-^>
 
+" <alt-t> to cycle through themes
+nnoremap † :call kn#themes#cycle_themes()<CR>
+
 " yank to end
 nnoremap Y y$
 

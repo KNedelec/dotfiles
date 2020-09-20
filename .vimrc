@@ -8,8 +8,6 @@ let g:VIM_HOME = $HOME . '/.vim/'
 let g:VIMRC = expand('<sfile>')
 
 call plug#begin('~/.vim/plugged')
-" Theme
-Plug 'jonathanfilip/vim-lucius'
 ""
 ""
 Plug 'mattn/emmet-vim'
@@ -49,9 +47,17 @@ Plug 'mileszs/ack.vim'
 """ snips
 Plug 'sirver/ultisnips'
 
+" Theme
+Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
+
 call plug#end()
 
-colorscheme lucius
+let g:kn_themes = ['gruvbox', 'nord', 'lucius', 'ayu', 'palenight']
+
 set background=dark
 set enc=utf-8
 set fenc=utf-8
