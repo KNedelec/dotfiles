@@ -10,7 +10,7 @@ else
 endif
 
 " source current file
-nnoremap <leader>sc :so %<CR>
+nnoremap <silent> <leader>sc :so %<CR>
 
 " open .vim/
 noremap <silent> <leader>eV :execute "e " . g:VIM_HOME<CR>
