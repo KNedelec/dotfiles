@@ -1,16 +1,22 @@
 " open .vimrc
 noremap <silent> <leader>ev :execute "e " . g:VIMRC<CR>
-noremap <silent> <leader>sv :execute "so " . g:VIMRC<CR>
 
 if has('nvim')
   " open init.vim
   noremap <silent> <leader>en :e $MYVIMRC<CR>
+  noremap <silent> <leader>sv :so $MYVIMRC<CR>
+else
+  noremap <silent> <leader>sv :execute "so " . g:VIMRC<CR>
 endif
+
+" source current file
+nnoremap <leader>sc :so %<CR>
 
 " open .vim/
 noremap <silent> <leader>eV :execute "e " . g:VIM_HOME<CR>
 " open ftplugin
 noremap <silent> <leader>ef :execute "e " . g:VIM_HOME . "ftplugin/" . &filetype . ".vim"<CR>
+noremap <silent> <leader>eF :execute "e " . g:VIM_HOME . "ftplugin/after/" . &filetype . ".vim"<CR>
 " source vimrc
 
 " save and quit

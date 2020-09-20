@@ -5,7 +5,7 @@
 set nocp hid ru nosol ai si fixeol et
 
 let g:VIM_HOME = $HOME . '/.vim/'
-let g:VIMRC = expand('%')
+let g:VIMRC = expand('<sfile>')
 
 call plug#begin('~/.vim/plugged')
 " Theme
