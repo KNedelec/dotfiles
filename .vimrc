@@ -15,6 +15,9 @@ Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'Galooshi/vim-import-js'
 
+""" lsp
+Plug 'neovim/nvim-lspconfig'
+
 "" git
 Plug 'tpope/vim-fugitive'
 
@@ -111,7 +114,8 @@ set viewdir+=/var/tmp/vim/views/
 set ttimeout
 set ttimeoutlen=50
 set colorcolumn=81
-set completeopt=menuone,preview
+set completeopt=menuone
+set shortmess+=c
 set cursorline
 set nojoinspaces
 
@@ -212,10 +216,14 @@ let g:ctrlp_follow_symlinks = 1
 autocmd FileType typescript :set makeprg=./node_modules/.bin/tsc\ --noEmit\ %
 
 setglobal virtualedit=block
-setglobal omnifunc=syntaxcomplete#Complete
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 " refresh ultisnips
 :command! RU call UltiSnips#RefreshSnippets()
+
+lua <<EOF
+require'nvim_lsp'.tsserver.setup{}
+EOF
+

@@ -62,6 +62,21 @@ nnoremap <silent> <left> <c-w>h
 nnoremap <C-j> <C-W>w
 nnoremap <C-k> <C-W>W
 
+" K to hover when lsp or help
+if has('nvim')
+  " execute lsp:hover if the filetype matches
+  function! Hover_if_lsp(default)
+    if match(&filetype, '\v<javascript|javascriptreact|typescript|typescriptreact>') != -1
+      execute ':lua vim.lsp.buf.hover()'
+    else
+      execute ':normal! ' . a:default
+    endif
+  endfunction
+
+  " keeps 'go to help' in vimscript
+  nnoremap <silent> K :call Hover_if_lsp('K')<CR>
+endif
+
 " undo tree
 nnoremap <leader>u :MundoToggle<CR>
 let g:mundo_preview_bottom = 1
