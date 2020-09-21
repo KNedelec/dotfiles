@@ -51,6 +51,12 @@ snippet call "Call function" i
 ${1}(${2:${VISUAL}})
 endsnippet
 
+snippet callb "Call function with callback" i
+${1}((${2}) => {
+  ${3:${VISUAL}}
+})
+endsnippet
+
 snippet co "const" b
 const ${1} = ${2:${VISUAL}}
 endsnippet
@@ -60,17 +66,28 @@ snippet cc "const with comment" b
 const ${2} = ${3:${VISUAL}}
 endsnippet
 
+snippet propf "name: function" i
+${2}: ($3) => ${4:${VISUAL}}
+endsnippet
+
+snippet propF "name: function with comments" b
+/*
+ * ${1}
+ */
+${2}: ($3) => ${4:${VISUAL}}
+endsnippet
+
 snippet fu "() => " i
 ${1} => ${2:${VISUAL}}
 endsnippet
 
-snippet Fu "() => " i
+snippet Fu "function () { \n }" i
 function ${1} {
 	${2:${VISUAL}}
 }
 endsnippet
 
-snippet F* "() => " i
+snippet F* "function* () { \n }" i
 function* ${1} {
 	${2:${VISUAL}}
 }
@@ -82,7 +99,7 @@ ${1} => {
 }
 endsnippet
 
-snippet cF "const x = ()" b
+snippet cF "const x = () => { \n } with comment" b
 /*
  * ${1}
  */
@@ -91,13 +108,13 @@ const ${2} = ${3} => {
 }
 endsnippet
 
-snippet cf "const x = ()" b
+snippet cf "const x = () => { \n }" b
 const ${1} = ${2} => {
   ${0:${VISUAL}}
 }
 endsnippet
 
-snippet expcf "export const x = () => {}" b
+snippet expcf "export const x = () => { \n } with comment" b
 /*
  * ${1}
  */
@@ -106,7 +123,7 @@ export const ${2} = ${3} => {
 }
 endsnippet
 
-snippet expcfr "export const x = () => ({})" b
+snippet expcfr "export const x = () => ({ \n })" b
 /*
  * ${1}
  */
@@ -125,8 +142,15 @@ snippet thro "throw" i
 throw new Error(${1:`${VISUAL}`})
 endsnippet
 
+snippet test "test(() => {})" b
+test('${1}', () => {
+  ${0:${VISUAL}}
+})
+endsnippet
+
 snippet desc "describe(() => {})" b
 describe('${1}', () => {
   ${0:${VISUAL}}
 })
 endsnippet
+
