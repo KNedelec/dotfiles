@@ -77,6 +77,11 @@ if has('nvim')
   nnoremap <silent> K :call Hover_if_lsp('K')<CR>
 endif
 
+" search current line, useful to test regex
+nnoremap <leader>rr 0y$:let @/ = @"<CR>
+" search inside quotes, useful to test regex
+nnoremap <leader>rs yi":let @/ = @"<CR>
+
 " undo tree
 nnoremap <leader>u :MundoToggle<CR>
 let g:mundo_preview_bottom = 1
