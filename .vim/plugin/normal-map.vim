@@ -32,10 +32,6 @@ nnoremap † :call kn#themes#cycle_themes()<CR>
 " yank to end
 nnoremap Y y$
 
-" Treat long lines as break lines (useful when moving around in them)
-nnoremap j gj
-nnoremap k gk
-
 " ack word
 nnoremap gR :Ack '<C-R><C-W>' --ignore-dir={node_modules,build}<CR>
 " ack word with current file extension
@@ -48,15 +44,14 @@ nnoremap go :Ack '<C-R><C-A>' --ignore-dir={node_modules,build} --%:e<CR>
 nnoremap Q <nop> " no ex mode
 
 " remap j/k to add relative jumts to jumplist
-nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
-nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
-
 "
 " arrows to navigate in windows
 nnoremap <silent> <up> <c-w>k
 nnoremap <silent> <down> <c-w>j
 nnoremap <silent> <right> <c-w>l
 nnoremap <silent> <left> <c-w>h
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 
 " Smart way to move between windows
 nnoremap <C-j> <C-W>w
