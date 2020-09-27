@@ -24,7 +24,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>x :x<cr>
 
-nnoremap <tab> <c-^>
+nnoremap <space> <c-^>
 
 " <alt-t> to cycle through themes
 nnoremap † :call kn#themes#cycle_themes()<CR>
