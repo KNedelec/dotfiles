@@ -1,6 +1,6 @@
 
 let b:ale_fixers = ['black', 'isort']
-let b:ale_linters = ['black']
+let b:ale_linters = ['flake8', 'pylint']
 let g:ale_fix_on_save = 1
 
 setlocal foldmethod=indent

@@ -224,7 +224,3 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 " refresh ultisnips
 :command! RU call UltiSnips#RefreshSnippets()
 
-lua <<EOF
-require'nvim_lsp'.tsserver.setup{}
-EOF
-

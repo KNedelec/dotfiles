@@ -9,3 +9,4 @@ set tags=jstags,.git/jstags
 command! -nargs=* Ak :execute "Ack --ignore-dir={node_modules,build} --type=js " . string(<q-args>)
 
 setlocal omnifunc=v:lua.vim.lsp.omnifunc
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
