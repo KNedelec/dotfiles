@@ -17,3 +17,4 @@ export PYENV_ROOT=~/.pyenv
 eval "$(pyenv init -)"
 
 export HEROKU_AC_ZSH_SETUP_PATH=/Users/knedelec/Library/Caches/heroku/autocomplete/zsh_setup
+export PATH=$PATH:/users/knedelec/scripts
