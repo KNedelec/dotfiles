@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-abolish'
 Plug 'michaeljsmith/vim-indent-object'
 
 """ textobjs
