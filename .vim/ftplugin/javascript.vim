@@ -10,6 +10,8 @@ nnoremap <leader>ers :Eselectors<cr>
 nnoremap <leader>err :Ereducer<cr>
 " edit redux state
 nnoremap <leader>ert :Estate<cr>
+" edit test
+nnoremap <leader>et :Etest<cr>
 
 " edit standard files
 nnoremap <leader>esa :e ./src/app.js<cr>
