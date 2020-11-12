@@ -106,6 +106,8 @@ alias dotls="ls -A | egrep '^\.'"
 alias soz="source ~/.zshrc"
 alias sob="source ~/.bashrc"
 
+alias dc="docker-compose"
+
 alias vim=nvim
 
 mk () { mkdir -p -- "$1" && cd -P -- "$1" }
