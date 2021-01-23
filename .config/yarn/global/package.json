@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "create-react-app": "^4.0.1",
+    "gatsby": "^2.19.12",
+    "import-js": "^4.0.2",
+    "importjs": "^3.0.2",
+    "javascript-typescript-langserver": "^2.11.3",
+    "netlify-cli": "^2.40.0",
+    "serve": "^11.3.0",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  }
+}
