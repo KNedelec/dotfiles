@@ -109,6 +109,7 @@ alias sob="source ~/.bashrc"
 alias dc="docker-compose"
 
 alias vim=nvim
+alias nv=node_module_version
 
 mk () { mkdir -p -- "$1" && cd -P -- "$1" }
 
