@@ -137,3 +137,8 @@ bindkey '' fg-bg
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# source private aliases
+source ~/.private/.alias
