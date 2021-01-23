@@ -142,3 +142,18 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # source private aliases
 source ~/.private/.alias
+
+# colorize the gg-front version when in a gg project
+function colored_ggfront_version() {
+  local ggfVersion=$(node_module_version @gitguardian/gg-front -l)
+  if [[ $ggfVersion == l* ]]
+  then
+    echo "%F{red}$ggfVersion%{$reset_color%}"
+  else
+    echo "%F{magenta}$ggfVersion%{$reset_color%}"
+  fi
+}
+
+GG_FRONT_VERSION_='$(colored_ggfront_version)'
+
+PROMPT="$CRUNCH_TIME_$GG_FRONT_VERSION_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%}"
